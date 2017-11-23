@@ -1,0 +1,309 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Dutch (Netherlands) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_NLD)
+#ifdef _WIN32
+LANGUAGE LANG_DUTCH, SUBLANG_DUTCH
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MENU MENU DISCARDABLE 
+BEGIN
+    POPUP "&Bestand"
+    BEGIN
+        MENUITEM "&Nieuw\tCtrl+N",              ID_BESTAND_NIEUW
+        MENUITEM "&Openen\tCtrl+O",             ID_BESTAND_OPENEN
+        MENUITEM "&Sluiten",                    ID_BESTAND_SLUITEN
+        MENUITEM SEPARATOR
+        MENUITEM "Impo&rteren",                 ID_BESTAND_IMPORTEREN
+        MENUITEM "E&xporteren",                 ID_BESTAND_EXPORTEREN
+        MENUITEM SEPARATOR
+        MENUITEM "O&pslaan",                    ID_BESTAND_OPSLAAN
+        MENUITEM "Ops&laan als...",             ID_BESTAND_OPSLAANALS
+        MENUITEM SEPARATOR
+        MENUITEM "&Afsluiten",                  ID_BESTAND_AFSLUITEN
+    END
+    POPUP "Be&werken"
+    BEGIN
+        MENUITEM "Project Toevoe&gen",          ID_PROJECT_NEW
+        MENUITEM "Project Verwij&deren",        ID_PROJECT_REMOVE
+        MENUITEM "Project Bewe&rken",           ID_PROJECT_EDIT
+        MENUITEM SEPARATOR
+        MENUITEM "Activiteit T&oevoegen",       ID_ACTIVITEIT_NEW
+        MENUITEM "Activiteit Ver&wijderen",     ID_ACTIVITEIT_REMOVE
+        MENUITEM "Activiteit Bewer&ken",        ID_ACTIVITEIT_EDIT
+    END
+    POPUP "&Koppeling", GRAYED
+    BEGIN
+        MENUITEM "&Genereer Management info",   ID_KOPPELING_MANAGEMENTINFO
+    END
+    POPUP "&Timer"
+    BEGIN
+        MENUITEM "&Start",                      ID_TIMER_START
+        MENUITEM "S&top",                       ID_TIMER_STOP
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&Inhoudsopgave",              ID_HELP_INHOUDSOPGAVE
+        MENUITEM SEPARATOR
+        MENUITEM "Inf&o",                       ID_HELP_INFO
+    END
+END
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_INFO DIALOG DISCARDABLE  0, 0, 214, 141
+STYLE DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Info"
+FONT 8, "Verdana"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,160,120,50,14
+    CTEXT           "Dit is PSP Manager",IDC_STATIC,5,5,160,16
+    CONTROL         130,IDC_STATIC,"Static",SS_BITMAP,7,46,73,79
+    LTEXT           "PSP Manager is gemaakt door:\n\n\tHilco Kleene\n\tHuub de Bruin\n\tMarijn Siero\n\tPatrick Hofman\n\tWouter Saaltink.\n\n\nMet dank aan de leraren HI!",
+                    IDC_STATIC,80,30,130,80
+END
+
+IDD_PROJECT DIALOG DISCARDABLE  0, 0, 379, 201
+STYLE DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Project"
+FONT 8, "Verdana"
+BEGIN
+    DEFPUSHBUTTON   "&OK",IDOK,265,180,50,14
+    PUSHBUTTON      "&Cancel",IDCANCEL,325,180,50,14
+    GROUPBOX        "Project - Registratie",IDC_PROJECT_GROUP,7,7,368,168
+    EDITTEXT        IDC_NAAM,70,20,300,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_NOTITIE,70,40,300,90,ES_MULTILINE | ES_AUTOVSCROLL | 
+                    WS_VSCROLL
+    COMBOBOX        IDC_STATUS,70,134,125,56,CBS_DROPDOWN | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_DEADLINE,275,135,95,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_TOTAALTIJD,275,155,95,12,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    LTEXT           "Project Naam:",IDC_LBL_NAAM,15,20,50,10
+    LTEXT           "Project Notitie:",IDC_LBL_NOTITIE,15,40,50,10
+    LTEXT           "Project Status:",IDC_LBL_STATUS,15,135,50,10
+    LTEXT           "Project Deadline:",IDC_LBL_DEADLINE,210,135,60,10
+    LTEXT           "Totaal Tijd:",IDC_LBL_TOTAALTIJD,210,155,60,10
+END
+
+IDD_ACTIVITEIT DIALOG DISCARDABLE  0, 0, 379, 226
+STYLE DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Activiteit"
+FONT 8, "Verdana"
+BEGIN
+    DEFPUSHBUTTON   "&OK",IDOK,265,205,50,14
+    PUSHBUTTON      "&Cancel",IDCANCEL,325,205,50,14
+    GROUPBOX        "Activiteit - Registratie",IDC_ACTIVITEIT_GROUP,7,7,368,
+                    188
+    EDITTEXT        IDC_NAAM,75,40,295,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_NOTITIE,75,60,295,90,ES_MULTILINE | ES_AUTOVSCROLL | 
+                    WS_VSCROLL
+    COMBOBOX        IDC_STATUS,75,154,125,41,CBS_DROPDOWNLIST | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_DEADLINE,275,155,95,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_TOTAALTIJD,275,176,95,12,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    LTEXT           "Activiteit Naam:",IDC_LBL_NAAM,15,40,55,10
+    LTEXT           "Activiteit Notitie:",IDC_LBL_NOTITIE,15,60,55,10
+    LTEXT           "Activiteit Status:",IDC_LBL_STATUS,15,154,55,10
+    LTEXT           "Activiteit Deadline:",IDC_LBL_DEADLINE,205,155,65,10
+    LTEXT           "Totaal Tijd:",IDC_LBL_TOTAALTIJD,205,176,65,10
+    LTEXT           "Project:",IDC_LBL_PROJECT,15,20,55,10
+    EDITTEXT        IDC_PROJECT,75,20,295,12,ES_AUTOHSCROLL | ES_READONLY
+END
+
+IDD_SPLASH DIALOGEX 0, 0, 341, 236
+STYLE DS_CENTER | WS_POPUP | WS_BORDER
+EXSTYLE WS_EX_TOOLWINDOW
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    CONTROL         167,IDC_STATIC,"Static",SS_BITMAP,0,0,341,236
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_INFO, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 207
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 131
+    END
+
+    IDD_PROJECT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 372
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 194
+    END
+
+    IDD_ACTIVITEIT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 372
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 219
+    END
+
+    IDD_SPLASH, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 334
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 229
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_TOOLBAR             BITMAP  DISCARDABLE     "toolbar.bmp"
+IDB_NODES               BITMAP  DISCARDABLE     "tv_nodes.bmp"
+IDB_SPLASH              BITMAP  DISCARDABLE     "splash.bmp"
+IDB_DUCK                BITMAP  DISCARDABLE     "info_duck.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_DUCK                ICON    DISCARDABLE     "duck.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_PRJ_NIEUW           "Project"
+    IDS_PRJ_VERWIJDEREN     "Project"
+    IDS_PRJ_BEWERKEN        "Project"
+    IDS_ACT_NIEUW           "Activiteit"
+    IDS_ACT_VERWIJDEREN     "Activiteit"
+    IDS_ACT_BEWERKEN        "Activiteit"
+    IDS_TIMER_START         "Timer"
+    IDS_TIMER_STOP          "Timer"
+    TT_PRJ_NIEUW            "Project Toevoegen"
+    TT_PRJ_VERWIJDEREN      "Project Verwijderen"
+    TT_PRJ_BEWERKEN         "Project Bewerken"
+    TT_ACT_NIEUW            "Activiteit Toevoegen"
+    TT_ACT_VERWIJDEREN      "Activiteit Verwijderen"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    TT_ACT_BEWERKEN         "Activiteit Bewerken"
+    TT_TIMER_START          "Timer Starten"
+    TT_TIMER_STOP           "Timer Stoppen"
+    IDS_STARTS              "Aantal keren gestart: "
+    IDS_LV_STARTTIJD        "Start Tijd"
+    IDS_LV_STOPTIJD         "Stop Tijd"
+    IDS_LV_TOTAALTIJD       "Totaal Tijd"
+    IDS_REG_NEW             "PSP Manager is geregistreerd!"
+    IDS_REG_FAIL            "Het registreren is niet gelukt."
+    IDS_DUBBLEOPEN          "De applicatie staat al open. Om consistentie van de gegevens te voorkomen, kan de applicatie maar één maal gestart worden."
+    IDS_SB_TIMER            "Klik op ""Timer Starten"""
+    IDS_LV_STARTDATUM       "Start Datum"
+    IDS_LV_STOPDATUM        "Stop Datum"
+    IDS_CLOSE               "Wilt u het te sluiten PSP-bestand opslaan?"
+    IDS_ZEKER               "U wilt het geselecteerde item verwijderen. Weet u het zeker?"
+    IDS_SEL_PROJECT         "U dient een Project te selecteren voordat deze functie mogelijk is."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_SEL_ACTIVITEIT      "U dient een Activiteit te selecteren voordat deze functie mogelijk is."
+    IDS_TIMER_ON            "De timer staat al aan. Het is niet mogelijk om nog een tijdregistratie te starten."
+    IDS_TIMER_STARTED       "Timer gestart voor "
+    IDS_ACT_BLOCKED         "Dit project is niet actief of de deadline is verlopen.\nU kunt geen nieuwe activiteit toevoegen."
+    IDS_ACTIEF              "Actief"
+    IDS_BEEINDIGD           "Beëindigd"
+    IDS_GEBLOKKEERD         "Geblokkeerd"
+    IDS_DEADLINE            "Deadline"
+    IDS_STATUS              "Status"
+    IDS_TOTAALTIJD          "Totaaltijd"
+    IDS_NOTITIE             "Notitie"
+    IDS_SAVE_QUESTION       "Moet het geopende bestand opgeslagen worden?"
+    IDS_TIMER_BLOCKED       "Dit project of deze activiteit is niet actief of de deadline is verlopen.\nU kunt geen tijdregistratie starten."
+END
+
+#endif    // Dutch (Netherlands) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+
