@@ -4,7 +4,6 @@
 #include <windows.h>
 #include "..\Resource\resource.h"
 #include "..\bc\Project.h"
-#include <strstream>
 
 #define WM_SETPRJ WM_USER+5001
 

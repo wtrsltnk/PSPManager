@@ -1,5 +1,6 @@
 #include "Tijd.h"
 #include <strstream>
+#include <string.h>
 
 CTijd::CTijd()
 {
@@ -47,7 +48,7 @@ void CTijd::setvals(int h, int m, int s)
 	m_seconds = s;
 }
 
-char * CTijd::toString()
+char * CTijd::toString() const
 {
 	strstream t;
 	if (m_hours < 10)
@@ -67,17 +68,17 @@ char * CTijd::toString()
 	return t.str();
 }
 
-signed int CTijd::getSeconden()
+signed int CTijd::getSeconden() const
 {
 	return m_seconds;
 }
 
-signed int CTijd::getMinuten()
+signed int CTijd::getMinuten() const
 {
 	return m_minutes;
 }
 
-signed int CTijd::getUren()
+signed int CTijd::getUren() const
 {
 	return m_hours;
 }

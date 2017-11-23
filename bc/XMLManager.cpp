@@ -2,7 +2,7 @@
 #include <fstream>
 using namespace std;
 
-bool CXMLManager::saveXML(CProjectManager pm)
+bool CXMLManager::saveXML(const CProjectManager& pm)
 {
 	return saveXML(m_readwritepath, false, pm);
 }
@@ -259,9 +259,9 @@ string CXMLManager::openFileForXMLInput(string filename)
 	return total;
 }
 
-bool CXMLManager::saveXML(string filename, bool export, CProjectManager pm)
+bool CXMLManager::saveXML(string filename, bool exp, const CProjectManager& pm)
 {
-	if (!export)
+    if (!exp)
 	{
 		m_readwritepath = filename;//.append(".xml");
 	}
@@ -280,7 +280,7 @@ bool CXMLManager::saveXML(string filename, bool export, CProjectManager pm)
 			<< "<!--  export PSP-manager van " << CDatum().toString() << " " << CTijd().toString() << " -->\n"
 			<< "<psp>\n";
 
-	vector<CProject> vec1 = pm.getProjecten();
+    const vector<CProject>& vec1 = pm.getProjecten();
 
 	for ( int i = 0; i < vec1.size(); i++)
 	{
@@ -291,7 +291,7 @@ bool CXMLManager::saveXML(string filename, bool export, CProjectManager pm)
 				<< "\t\t\t<deadline>" << vec1[i].getDeadLine().toString() << "</deadline>\n"
 				<< "\t\t</pid>\n";
 
-		vector<CActiviteit> vec2 = vec1[i].getActiviteiten();
+        const vector<CActiviteit>& vec2 = vec1[i].getActiviteiten();
 
 		for ( int j = 0; j < vec2.size(); j++)
 		{
@@ -302,9 +302,9 @@ bool CXMLManager::saveXML(string filename, bool export, CProjectManager pm)
 					<< "\t\t\t\t<deadline>" << vec2[j].getDeadLine().toString() << "</deadline>\n"
 					<< "\t\t\t</aid>\n";
 
-			if (!export)
+            if (!exp)
 			{
-				vector<CTijdRegistratie> vec3 = vec2[j].getTijdRegistraties();
+                const vector<CTijdRegistratie>& vec3 = vec2[j].getTijdRegistraties();
 
 				for ( int k = 0; k < vec3.size(); k++)
 				{

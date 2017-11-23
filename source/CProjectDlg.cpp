@@ -92,7 +92,7 @@ void CProjectDlg::showData(CProject *temp)
 	SetDlgItemText(m_hProject, IDC_NAAM, const_cast<char *>(temp->getNaam().c_str()));
 	SetDlgItemText(m_hProject, IDC_NOTITIE, const_cast<char *>(temp->getNotitie().c_str()));
 	SendMessage(GetDlgItem(m_hProject, IDC_STATUS), CB_SETCURSEL, temp->getStatus(), 0);
-	SetDlgItemText(m_hProject, IDC_DEADLINE, const_cast<char *>(temp->getDeadLine().toString()));
-	SetDlgItemText(m_hProject, IDC_TOTAALTIJD, const_cast<char *>(temp->getTotaalTijd().toString()));
+    SetDlgItemText(m_hProject, IDC_DEADLINE, const_cast<char *>(temp->getDeadLine().toString().c_str()));
+    SetDlgItemText(m_hProject, IDC_TOTAALTIJD, const_cast<char *>(temp->getTotaalTijd().toString().c_str()));
 	s_prj = *temp;
 }

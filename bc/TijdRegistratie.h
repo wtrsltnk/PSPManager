@@ -18,17 +18,17 @@ public:
 	CTijdRegistratie();
 	CTijdRegistratie(CTijd &, CTijd &,CDatum &,CDatum &);
 	
-	CTijd getStartTijd();
-	CTijd getStopTijd();
-	CDatum getStartDatum();
-	CDatum getStopDatum();
+    CTijd getStartTijd() const;
+    CTijd getStopTijd() const;
+    CDatum getStartDatum() const;
+    CDatum getStopDatum() const;
 
 	void setStartTijd(CTijd);
 	void setStopTijd(CTijd);
 	void setStartDatum(CDatum);
 	void setStopDatum(CDatum);
 	
-	CTijdverschil getTotaalTijd();
+    CTijdverschil getTotaalTijd() const;
 };
 
 #endif

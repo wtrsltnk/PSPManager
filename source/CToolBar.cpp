@@ -1,5 +1,5 @@
 #include "CToolBar.h"
-
+#include <sstream>
 
 /////////////////////////////////////
 // Constructors / Destructors      //

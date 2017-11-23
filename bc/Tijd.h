@@ -18,10 +18,10 @@ private:
 public:
 	CTijd();
 	CTijd(char * tijd);
-	signed int getUren();
-	signed int getMinuten();
-	signed int getSeconden();
-	char * toString();
+    signed int getUren() const;
+    signed int getMinuten() const;
+    signed int getSeconden() const;
+    char * toString() const;
 };
 
 #endif

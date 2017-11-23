@@ -12,7 +12,7 @@ CProjectActiviteit::CProjectActiviteit(string naam, signed int status, CDatum de
 	m_notitie = notitie;
 }
 
-string CProjectActiviteit::getNaam()
+string CProjectActiviteit::getNaam() const
 {
 	return m_naam;
 }
@@ -22,7 +22,7 @@ void CProjectActiviteit::setNaam(string naam)
 	m_naam = naam;
 }
 
-CProjectActiviteit::getStatus()
+CProjectActiviteit::getStatus() const
 {
 	return m_status;
 }
@@ -32,7 +32,7 @@ void CProjectActiviteit::setStatus(int status)
 	m_status = status;
 }
 
-string CProjectActiviteit::getNotitie()
+string CProjectActiviteit::getNotitie() const
 {
 	return m_notitie;
 }
@@ -43,7 +43,7 @@ void CProjectActiviteit::setNotitie(string notitie)
 }
 
 
-CDatum CProjectActiviteit::getDeadLine()
+CDatum CProjectActiviteit::getDeadLine() const
 {
 	return m_deadline;
 }

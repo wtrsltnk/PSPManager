@@ -1,7 +1,7 @@
 #include <iostream>
 #include "ProjectManager.h"
 
-void main()
+int main()
 {
 	// Maken van een project
 
@@ -13,8 +13,8 @@ void main()
 	CActiviteit ac = CActiviteit(notitie, 9, CDatum(), notitie);
 	manager.getProject(naam)->addActiviteit(ac);
 
-	CTijdverschil a = CTijdverschil(2,3);
-	CTijdverschil b = CTijdverschil(2,3);
+    CTijdverschil a = CTijdverschil(2,3,0);
+    CTijdverschil b = CTijdverschil(2,3,0);
 	b+=a;
 
 	cout << b.getUren() << ":" << b.getMinuten() << endl;
@@ -28,4 +28,6 @@ void main()
 		cout << "ACTIVITEIT NULL" << endl;
 	else
 		cout << manager.getProject(naam)->getActiviteit(notitie)->getNaam().c_str() << endl; //cout << "not NULL" << endl;
+
+    return 0;
 }

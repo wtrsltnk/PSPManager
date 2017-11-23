@@ -1,5 +1,6 @@
 #include "Project.h"
 #include <string>
+#include <string.h>
 #include <vector>
 #include <iostream>
 using namespace std;
@@ -52,7 +53,7 @@ bool CProject::removeActiviteit(string anaam)
 	return false;
 }
 
-vector<CActiviteit> CProject::getActiviteiten()
+const vector<CActiviteit>& CProject::getActiviteiten() const
 {
 	return m_activiteit;
 }
@@ -65,7 +66,7 @@ void CProject::setProject(CProjectActiviteit projectactiviteit)
 	setNotitie(projectactiviteit.getNotitie());
 }
 
-CTijdverschil CProject::getTotaalTijd()
+CTijdverschil CProject::getTotaalTijd() const
 {
 	CTijdverschil tv = CTijdverschil(0, 0, 0);
 	for (signed int i = 0; i < m_activiteit.size(); i++)

@@ -3,9 +3,9 @@
 
 #include <windows.h>
 #include <commctrl.h>
-#include "..\Resource\resource.h"
 #include <tchar.h>
-#include <strstream>
+#include "..\Resource\resource.h"
+
 using namespace std;
 
 class CToolBar

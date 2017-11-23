@@ -21,11 +21,11 @@ public:
 	CActiviteit * getActiviteit(string, string);
 	void setActiviteit(string, CProjectActiviteit);
 	bool removeActiviteit(string, string);
-	vector<CActiviteit> * getActiviteiten(string);
+    vector<CActiviteit> getActiviteiten(string);
 
 	void addTijdRegistratie(string, string, CTijdRegistratie);
-	CTijdverschil * getTotaalTijd(string);
-	CTijdverschil * getTotaalTijd(string, string);
+    CTijdverschil getTotaalTijd(string);
+    CTijdverschil getTotaalTijd(string, string);
 
 	bool readXML(string);
 	bool importXML(string);

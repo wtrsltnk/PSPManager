@@ -16,16 +16,16 @@ protected:
 public:
 	CProjectActiviteit();
 	CProjectActiviteit(string, signed int, CDatum, string);
-	string getNaam();
+    string getNaam() const;
 	void setNaam(string);
 
-	signed int getStatus();
+    signed int getStatus() const;
 	void setStatus(signed int);
 	
-	CDatum getDeadLine();
+    CDatum getDeadLine() const;
 	void setDeadLine(CDatum);
 
-	string getNotitie();
+    string getNotitie() const;
 	void setNotitie(string);
 
 };

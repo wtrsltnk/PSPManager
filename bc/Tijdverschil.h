@@ -2,7 +2,10 @@
 #define CTIJDVERSCHIL_H
 
 #include "tijd.h"
-#include <strstream>
+#include <string>
+#include <sstream>
+
+using namespace std;
 
 class CTijdverschil
 {
@@ -19,9 +22,9 @@ public:
 	unsigned int getSeconden();
 
 	CTijdverschil(unsigned int, unsigned int, unsigned int);
-	char * toString();
-	void operator+=(const CTijdverschil t2);
-	friend const CTijdverschil operator +(CTijdverschil t1, CTijdverschil t2);
+    string toString();
+    void operator += (const CTijdverschil& t2) ;
+    friend const CTijdverschil operator + (const CTijdverschil& t1, const CTijdverschil& t2);
 };
 
 #endif

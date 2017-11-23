@@ -61,12 +61,12 @@ bool CSuperManager::removeActiviteit(string project, string activiteit)
 		return false;
 }
 
-vector<CActiviteit> * CSuperManager::getActiviteiten(string project)
+vector<CActiviteit> CSuperManager::getActiviteiten(string project)
 {
 	CProject * p = m_pm.getProject(project);
 	if (p != NULL)
-		return &(p->getActiviteiten());
-	return NULL;
+        return (p->getActiviteiten());
+    return vector<CActiviteit>();
 }
 
 void CSuperManager::addTijdRegistratie(string project, string activiteit, CTijdRegistratie tijdregistratie)
@@ -80,24 +80,24 @@ void CSuperManager::addTijdRegistratie(string project, string activiteit, CTijdR
 	}
 }
 
-CTijdverschil * CSuperManager::getTotaalTijd(string project)
+CTijdverschil CSuperManager::getTotaalTijd(string project)
 {
 	CProject * p = m_pm.getProject(project);
 	if (p != NULL)
-		return &(p->getTotaalTijd());
-	return NULL;
+        return (p->getTotaalTijd());
+    return CTijdverschil(0, 0, 0);
 }
 
-CTijdverschil * CSuperManager::getTotaalTijd(string project, string activiteit)
+CTijdverschil CSuperManager::getTotaalTijd(string project, string activiteit)
 {
 	CProject * p = m_pm.getProject(project);
 	if (p != NULL)
 	{
 		CActiviteit * a = p->getActiviteit(activiteit);
 		if (a != NULL)
-			return &(a->getTotaalTijd());
+            return (a->getTotaalTijd());
 	}
-	return NULL;
+    return CTijdverschil(0, 0, 0);
 }
 
 bool CSuperManager::readXML(string filename)

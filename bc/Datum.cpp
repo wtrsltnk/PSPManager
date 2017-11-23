@@ -1,7 +1,9 @@
 #include "Datum.h"
 #include <iostream>
-#include <strstream>
+#include <sstream>
+
 using namespace std;
+
 CDatum::CDatum()
 {
 	time_t datum;
@@ -33,9 +35,9 @@ void CDatum::setvals(int d, int m, int y)
 	m_days = d;
 }
 
-char * CDatum::toString()
+string  CDatum::toString() const
 {
-	strstream t;
+    stringstream t;
 	if (m_days < 10)
 		t << "0" << m_days << "-";
 	else
@@ -53,22 +55,22 @@ char * CDatum::toString()
 	return t.str();
 }
 
-signed int CDatum::getDagen()
+signed int CDatum::getDagen() const
 {
 	return m_days;
 }
 
-signed int CDatum::getMaanden()
+signed int CDatum::getMaanden() const
 {
 	return m_months;
 }
 
-signed int CDatum::getJaren()
+signed int CDatum::getJaren() const
 {
 	return m_years;
 }
 
-signed int CDatum::getTotaaldagen()
+signed int CDatum::getTotaaldagen() const
 {
 	signed int jaar[] = {31,28,31,30,31,30,31,31,30,31,30,31};
 	signed int d = m_days;

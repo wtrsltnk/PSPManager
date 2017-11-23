@@ -15,9 +15,9 @@ public:
 	CActiviteit();
 	CActiviteit(string, signed int, CDatum, string);
 	void addTijdRegistratie(CTijdRegistratie);
-	vector <CTijdRegistratie> getTijdRegistraties();
+    const vector <CTijdRegistratie>& getTijdRegistraties() const;
 	void setActiviteit(CProjectActiviteit);
-	CTijdverschil getTotaalTijd();
+    CTijdverschil getTotaalTijd() const;
 };
 
 #endif

@@ -20,7 +20,7 @@ public:
 	CProject * getProject(string);
 	void setProject(CProjectActiviteit);
 	bool removeProject(string);
-	vector<CProject> getProjecten();
+    const vector<CProject>& getProjecten() const;
 };
 
 #endif

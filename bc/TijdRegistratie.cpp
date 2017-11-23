@@ -10,30 +10,29 @@ CTijdRegistratie::CTijdRegistratie()
 
 
 CTijdRegistratie::CTijdRegistratie(CTijd &start_t, CTijd &stop_t, CDatum &start_d, CDatum &stop_d):m_starttijd(start_t), m_stoptijd(stop_t), m_startdatum(start_d), m_stopdatum(stop_d)
-{
-}
+{ }
 
-CTijd CTijdRegistratie::getStartTijd()
+CTijd CTijdRegistratie::getStartTijd() const
 {
 	return m_starttijd;
 }
 
-CTijd CTijdRegistratie::getStopTijd()
+CTijd CTijdRegistratie::getStopTijd() const
 {
 	return m_stoptijd;
 }
 
-CDatum CTijdRegistratie::getStartDatum()
+CDatum CTijdRegistratie::getStartDatum() const
 {
 	return m_startdatum;
 }
 
-CDatum CTijdRegistratie::getStopDatum()
+CDatum CTijdRegistratie::getStopDatum() const
 {
 	return m_stopdatum;
 }
 
-CTijdverschil CTijdRegistratie::getTotaalTijd()
+CTijdverschil CTijdRegistratie::getTotaalTijd() const
 {
 	signed int stop = (m_stoptijd.getSeconden() + m_stoptijd.getMinuten() * 60 + m_stoptijd.getUren()*3600 + m_stopdatum.getTotaaldagen() * 86400);
 	signed int start = (m_starttijd.getSeconden() + m_starttijd.getMinuten() * 60+ m_starttijd.getUren()*3600 + m_startdatum.getTotaaldagen() * 86400);

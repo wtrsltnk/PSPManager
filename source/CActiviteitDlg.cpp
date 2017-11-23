@@ -98,17 +98,17 @@ void CActiviteitDlg::initDlg()
 void CActiviteitDlg::showData(CActiviteit *temp, string project)
 {
 	//vul de project in
-	SetDlgItemText(m_hActiviteit, IDC_PROJECT, const_cast<char *>(project.c_str()));
+    SetDlgItemText(m_hActiviteit, IDC_PROJECT, const_cast<const char *>(project.c_str()));
 	//vul de naam in
-	SetDlgItemText(m_hActiviteit, IDC_NAAM, const_cast<char *>(temp->getNaam().c_str()));
+    SetDlgItemText(m_hActiviteit, IDC_NAAM, const_cast<const char *>(temp->getNaam().c_str()));
 	//vul de notitie
-	SetDlgItemText(m_hActiviteit, IDC_NOTITIE, const_cast<char *>(temp->getNotitie().c_str()));
+    SetDlgItemText(m_hActiviteit, IDC_NOTITIE, const_cast<const char *>(temp->getNotitie().c_str()));
 	//zet de status
 	SendMessage(GetDlgItem(m_hActiviteit, IDC_STATUS), CB_SETCURSEL, temp->getStatus(), 0);
 	//vul de deadine
-	SetDlgItemText(m_hActiviteit, IDC_DEADLINE, const_cast<char *>(temp->getDeadLine().toString()));
+    SetDlgItemText(m_hActiviteit, IDC_DEADLINE, const_cast<const char *>(temp->getDeadLine().toString().c_str()));
 	//vul de totaal tijd
-	SetDlgItemText(m_hActiviteit, IDC_TOTAALTIJD, const_cast<char *>(temp->getTotaalTijd().toString()));
+    SetDlgItemText(m_hActiviteit, IDC_TOTAALTIJD, const_cast<const char *>(temp->getTotaalTijd().toString().c_str()));
 	s_act = *temp;
 	s_prj = project;
 }

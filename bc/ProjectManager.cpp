@@ -30,7 +30,7 @@ void CProjectManager::setProject(CProjectActiviteit data)
 			m_data[i].setProject(data);
 }
 
-vector<CProject> CProjectManager::getProjecten()
+const vector<CProject>& CProjectManager::getProjecten() const
 {
 	return m_data;
 }

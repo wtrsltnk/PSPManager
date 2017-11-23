@@ -65,7 +65,7 @@ void CCManager::setTime()
 //Zet het aantal starts in de statusbar
 void CCManager::setStarts(int starts)
 {
-	strstream strs;
+    stringstream strs;
 	char szBuf[255];
 
 	LoadString(m_hInstance, IDS_STARTS, szBuf, 255);
@@ -92,7 +92,7 @@ void CCManager::ToolTipProc(LPARAM lParam)
 void CCManager::CControlProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam, CSuperManager * sm)
 {
 	LPNMTVKEYDOWN info;
-	strstream strs;
+    stringstream strs;
 	char szBuf[255], szDeadline[255], szStatus[255], szTotaaltijd[255], szNotitie[255];
 	CProject * prj;
 	CActiviteit * act;
@@ -119,7 +119,7 @@ void CCManager::CControlProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam,
 						<< "\n"
 						<< szTotaaltijd << ":\t" << act->getTotaalTijd().toString()
 						<< "\n\n" << szNotitie << ":\n" << act->getNotitie() << ends;
-					MessageBox(m_hWnd, strs.str(), "PSP-Manager", 0);
+                    MessageBox(m_hWnd, strs.str().c_str(), "PSP-Manager", 0);
 				}
 				else
 				{
@@ -134,10 +134,9 @@ void CCManager::CControlProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam,
 							<< "\n" 
 							<< szTotaaltijd << ":\t" << prj->getTotaalTijd().toString()
 							<< "\n\n" << szNotitie << ":\n" << prj->getNotitie() << ends;
-						MessageBox(m_hWnd, strs.str(), "PSP-Manager", 0);
+                        MessageBox(m_hWnd, strs.str().c_str(), "PSP-Manager", 0);
 					}
-				}
-				delete strs.str();
+                }
 			}
 			if (info->wVKey == 116)		//F5 => refreshed de TreeView
 				updateTreeView(sm);

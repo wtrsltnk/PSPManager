@@ -18,11 +18,11 @@ private:
 public:
 	CDatum();
 	CDatum(char * datum);
-	signed int getDagen();
-	signed int getMaanden();
-	signed int getJaren();
-	signed int getTotaaldagen();
-	char * toString();
+    signed int getDagen() const;
+    signed int getMaanden() const;
+    signed int getJaren() const;
+    signed int getTotaaldagen() const;
+    string toString() const;
 	void setDatum(int, int, int);
 	bool operator <(CDatum);
 	

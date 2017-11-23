@@ -17,7 +17,7 @@ void CActiviteit::addTijdRegistratie(CTijdRegistratie registratie)
 		m_tijdsregistratie.push_back(registratie);
 }
 
-vector<CTijdRegistratie> CActiviteit::getTijdRegistraties()
+const vector<CTijdRegistratie>& CActiviteit::getTijdRegistraties() const
 {
 	return m_tijdsregistratie;
 }
@@ -30,10 +30,11 @@ void CActiviteit::setActiviteit(CProjectActiviteit pactiviteit)
 	setNotitie(pactiviteit.getNotitie());
 }
 
-CTijdverschil CActiviteit::getTotaalTijd()
+CTijdverschil CActiviteit::getTotaalTijd() const
 {
 	CTijdverschil tv = CTijdverschil(0,0, 0);
-	for (signed int i = 0; i < m_tijdsregistratie.size(); i++)
+
+    for (signed int i = 0; i < m_tijdsregistratie.size(); i++)
 		tv += m_tijdsregistratie[i].getTotaalTijd();
 
 	return tv;

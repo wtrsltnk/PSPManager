@@ -2,6 +2,8 @@
 #include <string>
 #include <vector>
 
+using namespace std;
+
 typedef struct _XMLINFO
 {
 	string tag;
@@ -18,8 +20,8 @@ private:
 	string m_readwritepath;
 public:
 	bool readXML(string, bool, CProjectManager&);
-	bool saveXML(string, bool, CProjectManager);
-	bool saveXML(CProjectManager pm);
+    bool saveXML(string, bool, const CProjectManager&);
+    bool saveXML(const CProjectManager& pm);
 	void setXMLPath(string);
 	string getXMLPath();
 };

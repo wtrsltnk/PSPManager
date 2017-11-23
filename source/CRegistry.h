@@ -3,7 +3,6 @@
 
 #include <windows.h>
 #include "..\Resource\resource.h"
-#include <strstream>
 #include <string>
 
 typedef struct _REGKEYCLASS 

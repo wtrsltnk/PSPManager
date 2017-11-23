@@ -18,8 +18,8 @@ public:
 	CActiviteit * getActiviteit(string);
 	void setActiviteit(CProjectActiviteit);
 	bool removeActiviteit(string);
-	vector<CActiviteit> getActiviteiten();
+    const vector<CActiviteit>& getActiviteiten() const;
 	void setProject(CProjectActiviteit);
-	CTijdverschil getTotaalTijd();
+    CTijdverschil getTotaalTijd() const;
 };
 #endif

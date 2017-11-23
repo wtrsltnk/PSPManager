@@ -3,10 +3,10 @@
 
 #include <string>
 #include <windows.h>
-#include "..\Resource\resource.h"
 #include <commctrl.h>
-#include <strstream>
+#include "..\Resource\resource.h"
 #include "..\bc\SuperManager.h"
+
 using namespace std;
 
 class CListView

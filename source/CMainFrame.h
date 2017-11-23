@@ -16,7 +16,8 @@
 #include "CRegistry.h"
 #include "..\bc\Supermanager.h"
 #include "..\Resource\resource.h"
-#include "help\htmlhelp.h"
+//#include "help\htmlhelp.h"
+
 using namespace std;
 
 class CMainFrame : public CWin
@@ -49,9 +50,9 @@ public:
 	bool isOpen();
 	void setClose();
 	CProject getNewProject();
-	CProject getSelProject();
+    CProject* getSelProject();
 	CActiviteit getNewActiviteit();
-	CActiviteit getSelActiviteit();
+    CActiviteit* getSelActiviteit();
 	void NieuwFile();
 	void OpenFile();
 	void OpslaanFile();

@@ -229,36 +229,38 @@ void CMainFrame::setClose()
 
 CProject CMainFrame::getNewProject()
 {
+    CProject p;
 	//vul de atributen van het Project object
-	prj.setNaam("Nieuw Project");
-	prj.setNotitie("Geen Notities");
-	prj.setStatus(0);
+    p.setNaam("Nieuw Project");
+    p.setNotitie("Geen Notities");
+    p.setStatus(0);
 
 	//return  het gevulde project
-	return prj;
+    return p;
 }
 
-CProject CMainFrame::getSelProject()
+CProject* CMainFrame::getSelProject()
 {
 	//vraag het geselecteerde project op
-	return *m_pSuperManager->getProject(m_pCCManager->getSelectedProject());;
+    return m_pSuperManager->getProject(m_pCCManager->getSelectedProject());;
 }
 
-CActiviteit CMainFrame::getSelActiviteit()
+CActiviteit* CMainFrame::getSelActiviteit()
 {
 	//vraag de geselecteerde activiteit op
-	return *m_pSuperManager->getActiviteit(m_pCCManager->getSelectedProject(), m_pCCManager->getSelectedActiviteit());
+    return m_pSuperManager->getActiviteit(m_pCCManager->getSelectedProject(), m_pCCManager->getSelectedActiviteit());
 }
 
 CActiviteit CMainFrame::getNewActiviteit()
 {
+    CActiviteit a;
 	//vul de atributen van het Activiteit object
-	act.setNaam("Nieuwe Activiteit");
-	act.setNotitie("Geen Notities");
-	act.setStatus(0);
+    a.setNaam("Nieuwe Activiteit");
+    a.setNotitie("Geen Notities");
+    a.setStatus(0);
 
 	//return  het gevulde project
-	return act;
+    return a;
 }
 
 
@@ -440,7 +442,8 @@ void CMainFrame::menuProc(HWND hWnd, WPARAM wParam)
 	//BEWERKEN MENU
 	case ID_PROJECT_NEW:
 		this->change = true;
-		m_pDlgManager->showProjectDlg(&getNewProject(), false);
+        this->prj = getNewProject();
+        m_pDlgManager->showProjectDlg(&this->prj, false);
 		break;
 	case ID_PROJECT_REMOVE:
 		this->change = true;
@@ -461,7 +464,9 @@ void CMainFrame::menuProc(HWND hWnd, WPARAM wParam)
 	case ID_PROJECT_EDIT:
 		this->change = true;
 		if (m_pCCManager->getSelectedProject() != "")		//is een project geselecteerd?
-			m_pDlgManager->showProjectDlg(&getSelProject(), true);
+        {
+            m_pDlgManager->showProjectDlg(getSelProject(), true);
+        }
 		else
 		{
 			LoadString(m_hInstance, IDS_SEL_PROJECT, szText, 255);
@@ -471,13 +476,19 @@ void CMainFrame::menuProc(HWND hWnd, WPARAM wParam)
 	case ID_ACTIVITEIT_NEW:
 		this->change = true;
 		if (m_pCCManager->getSelectedProject() != "")		//is een project geselecteerd?
-			if((m_pSuperManager->getProject(m_pCCManager->getSelectedProject())->getStatus() == 0) && !(CDatum() < m_pSuperManager->getProject(m_pCCManager->getSelectedProject())->getDeadLine()))
-				m_pDlgManager->showActiviteitDlg(&getNewActiviteit(), m_pCCManager->getSelectedProject(), false);
+        {
+            if((m_pSuperManager->getProject(m_pCCManager->getSelectedProject())->getStatus() == 0)
+                    && !(CDatum() < m_pSuperManager->getProject(m_pCCManager->getSelectedProject())->getDeadLine()))
+            {
+                this->act = getNewActiviteit();
+                m_pDlgManager->showActiviteitDlg(&this->act, m_pCCManager->getSelectedProject(), false);
+            }
 			else
 			{	
 				LoadString(m_hInstance, IDS_ACT_BLOCKED, szText, 255);
 				MessageBox(hWnd, szText, "PSP-Manager", MB_OK|MB_ICONINFORMATION);
 			}
+        }
 		else
 		{
 			LoadString(m_hInstance, IDS_SEL_PROJECT, szText, 255);
@@ -503,7 +514,9 @@ void CMainFrame::menuProc(HWND hWnd, WPARAM wParam)
 	case ID_ACTIVITEIT_EDIT:
 		this->change = true;
 		if (m_pCCManager->getSelectedActiviteit() != "")	//is een activiteit geselecteerd?
-			m_pDlgManager->showActiviteitDlg(&getSelActiviteit(), m_pCCManager->getSelectedProject(), true);
+        {
+            m_pDlgManager->showActiviteitDlg(getSelActiviteit(), m_pCCManager->getSelectedProject(), true);
+        }
 		else
 		{
 			LoadString(m_hInstance, IDS_SEL_ACTIVITEIT, szText, 255);
@@ -572,7 +585,7 @@ void CMainFrame::menuProc(HWND hWnd, WPARAM wParam)
 	//HELP MENU
 	case ID_HELP_INHOUDSOPGAVE:
 		//MessageBox(m_hWnd, "Inhoudsopgave","Help", MB_OK);
-		HtmlHelp(NULL, "PSP_Help.chm", HH_DISPLAY_TOPIC, 0);
+//		HtmlHelp(NULL, "PSP_Help.chm", HH_DISPLAY_TOPIC, 0);
 		break;
 	case ID_HELP_INFO:
 		//MessageBox(m_hWnd, "Info","Help", MB_OK);
